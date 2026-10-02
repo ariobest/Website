@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>ARIO SCRIPTS</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <a class="brand" href="index.html"><span class="logo">A</span><span>ARIO <b>SCRIPTS</b></span></a>
+    <nav>
+      <a href="#scripts">Scripts</a><a href="#games">Games</a><a href="#categories">Categories</a>
+      <a href="admin.html" class="admin-link">Admin Panel</a>
+    </nav>
+    <button id="themeBtn" class="icon-btn" title="Toggle theme">☾</button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="eyebrow">PREMIUM LUA DATABASE</div>
+      <h1>Find your next <span>script.</span></h1>
+      <p>Browse a clean, curated library of Lua scripts, games, categories and tools.</p>
+      <div class="search">
+        <input id="searchInput" placeholder="Search by script, game, category or tag...">
+        <button onclick="doSearch()">Search</button>
+      </div>
+      <div class="quick"><button onclick="randomScript()">↗ Random script</button><button onclick="sortPopular()">Popular now</button></div>
+    </section>
+
+    <section class="stats" id="stats">
+      <div><strong id="scriptCount">0</strong><small>Scripts</small></div>
+      <div><strong id="memberCount">1,248</strong><small>Members</small></div>
+      <div><strong id="viewCount">0</strong><small>Views</small></div>
+      <div><strong id="downloadCount">0</strong><small>Downloads</small></div>
+      <div><strong id="copyCount">0</strong><small>Copies</small></div>
+      <div><strong id="favCount">0</strong><small>Favorites</small></div>
+    </section>
+
+    <section id="scripts" class="section">
+      <div class="section-head"><div><span class="label">LIBRARY</span><h2>Featured Scripts</h2></div><a href="#scripts">View all →</a></div>
+      <div id="scriptGrid" class="grid"></div>
+    </section>
+
+    <section id="games" class="section">
+      <div class="section-head"><div><span class="label">DISCOVER</span><h2>Popular Games</h2></div></div>
+      <div id="gameGrid" class="game-grid"></div>
+    </section>
+
+    <section id="categories" class="section">
+      <div class="section-head"><div><span class="label">EXPLORE</span><h2>Categories</h2></div></div>
+      <div class="category-grid">
+        <button onclick="filterCategory('Universal')">Universal <span>12</span></button>
+        <button onclick="filterCategory('Admin')">Admin <span>8</span></button>
+        <button onclick="filterCategory('UI')">UI / Hubs <span>15</span></button>
+        <button onclick="filterCategory('Utility')">Utilities <span>11</span></button>
+        <button onclick="filterCategory('Fun')">Fun <span>7</span></button>
+        <button onclick="filterCategory('Automation')">Automation <span>9</span></button>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="brand"><span class="logo">A</span><span>ARIO <b>SCRIPTS</b></span></div><p>A curated, admin-managed script database.</p><span>© 2026 ARIO SCRIPTS</span></footer>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

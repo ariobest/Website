@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>ARIO — Admin Panel</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="admin-layout">
+  <aside class="sidebar">
+    <a class="brand" href="index.html"><span class="logo">A</span><span>ARIO <b>ADMIN</b></span></a>
+    <button class="side active" data-page="dashboard">⌂ Dashboard</button>
+    <button class="side" data-page="scripts">▣ Scripts</button>
+    <button class="side" data-page="games">◈ Games</button>
+    <button class="side" data-page="categories">◫ Categories</button>
+    <button class="side" data-page="members">♙ Members</button>
+    <button class="side" data-page="settings">⚙ Settings</button>
+    <a class="back" href="index.html">← Back to website</a>
+  </aside>
+  <main class="admin-main">
+    <div class="admin-top"><div><span class="label">CONTROL CENTER</span><h1 id="pageTitle">Dashboard</h1></div><button id="themeBtn" class="icon-btn">☾</button></div>
+
+    <div id="dashboard" class="page active-page">
+      <div class="admin-stats">
+        <div class="panel-stat"><small>Total Scripts</small><strong id="aScripts">0</strong><span>Live database</span></div>
+        <div class="panel-stat"><small>Total Views</small><strong id="aViews">0</strong><span>All time</span></div>
+        <div class="panel-stat"><small>Downloads</small><strong id="aDownloads">0</strong><span>All time</span></div>
+        <div class="panel-stat"><small>Members</small><strong>1,248</strong><span>Registered</span></div>
+      </div>
+      <div class="panel"><div class="panel-title"><h2>Quick actions</h2></div>
+        <div class="actions"><button onclick="showPage('scripts');openModal()">＋ Add Script</button><button onclick="showPage('games');openGameModal()">＋ Add Game</button><button onclick="showPage('categories')">Manage Categories</button></div>
+      </div>
+      <div class="panel"><div class="panel-title"><h2>Recent activity</h2></div><div id="activity" class="activity"></div></div>
+    </div>
+
+    <div id="scripts" class="page"><div class="toolbar"><button onclick="openModal()">＋ Add Script</button><input id="adminSearch" placeholder="Search scripts..." oninput="renderAdminScripts()"></div><div class="panel"><div id="adminScripts"></div></div></div>
+    <div id="games" class="page"><div class="toolbar"><button onclick="openGameModal()">＋ Add Game</button></div><div class="panel"><div id="adminGames"></div></div></div>
+    <div id="categories" class="page"><div class="panel"><h2>Categories</h2><div id="adminCategories" class="category-grid"></div></div></div>
+    <div id="members" class="page"><div class="panel"><h2>Members</h2><p class="muted">Demo member management. This static site stores data in your browser.</p><div class="member-row"><b>Ario</b><span>Owner</span><button>Active</button></div><div class="member-row"><b>DemoUser</b><span>Member</span><button>Active</button></div></div></div>
+    <div id="settings" class="page"><div class="panel settings"><h2>Site settings</h2><label>Site name<input id="siteName" value="ARIO SCRIPTS"></label><label>Accent text<input id="accentText" value="Premium Lua Script Database"></label><button onclick="saveSettings()">Save settings</button></div></div>
+  </main>
+</div>
+
+<div id="modal" class="modal"><div class="modal-box"><button class="close" onclick="closeModal()">×</button><h2>Add Script</h2>
+<label>Name<input id="sName" placeholder="Example Hub"></label><label>Game<input id="sGame" placeholder="Example Game"></label>
+<label>Category<input id="sCat" placeholder="Universal"></label><label>Tags<input id="sTags" placeholder="ui, utility"></label>
+<label>Loadstring / Code<textarea id="sCode" placeholder="Paste your Lua code here"></textarea></label>
+<button onclick="addScript()">Publish Script</button></div></div>
+
+<div id="gameModal" class="modal"><div class="modal-box"><button class="close" onclick="closeGameModal()">×</button><h2>Add Game</h2><label>Name<input id="gName" placeholder="Game name"></label><label>Image URL<input id="gImg" placeholder="Optional image URL"></label><button onclick="addGame()">Add Game</button></div></div>
+<script src="admin.js"></script>
+</body></html>
